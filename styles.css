@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Pour retirer la scrollbar afin que ça soit plus propre
+ et pour éviter un "saut" lorqu'on clique sur les images*/
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fcbf49;
+  font-family: "Quicksand", sans-serif;
+  color: #421f14;
+  overflow: hidden;
+}
+
+/* Page principale */
+
+#PrincipalPage {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  flex-direction: column;
+  z-index: 0;
+}
+
+#PrincipalPageVideo {
+  position: absolute;
+  min-width: 100%;
+  object-fit: cover;
+  opacity: 0%;
+  animation-name: opacitychange;
+  animation-duration: 3s;
+  z-index: -2;
+}
+
+@keyframes opacitychange {
+  from {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 0%;
+  }
+}
+
+#PrincipalPageVideoNight {
+  position: absolute;
+  min-width: 100%;
+  object-fit: cover;
+  opacity: 50%;
+  z-index: -2;
+  animation-name: opacitychange2;
+  animation-duration: 3s;
+}
+
+@keyframes opacitychange2 {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 50%;
+  }
+}
+
+#principalPageEnter {
+  margin-top: 100px;
+  background-color: #e5a040;
+  border: 0px solid #421f14;
+  border-radius: 20px;
+  height: 80px;
+  width: 260px;
+  opacity: 100%;
+  font-size: 30px;
+  font-family: "Quicksand", sans-serif;
+  color: #421f14;
+  animation-name: buttonpopup;
+  animation-duration: 3s;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+  z-index: 2;
+}
+
+#principalPageButton {
+  text-decoration: none;
+  color: #421f14;
+}
+
+@keyframes buttonpopup {
+  from {
+    opacity: 0%;
+    transform: translateY(800px);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translateY(0px);
+  }
+}
+
+#principalPageEnter:hover {
+  transform: scale(1.05);
+}
+
+#barriersPrincipalPage {
+  position: absolute;
+  width: 100%;
+  animation-name: barrierspopup;
+  animation-duration: 3s;
+  z-index: -1;
+  object-fit: cover;
+  bottom: 0;
+}
+
+@keyframes barrierspopup {
+  from {
+    transform: translateY(400px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+#lightsPrincipalPage {
+  position: absolute;
+  width: 100%;
+  animation-name: lightspopup;
+  animation-duration: 3s;
+  z-index: -1;
+  object-fit: cover;
+  top: 0;
+}
+
+@keyframes lightspopup {
+  from {
+    transform: translateY(-200px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+#characterPrincipalPageContent {
+  position: absolute;
+  width: 100%;
+  animation-name: slideUp;
+  animation-duration: 3.5s;
+  object-fit: cover;
+  bottom: 0;
+}
+
+#characterPrincipalPage {
+  width: 100%;
+  animation-name: breathing;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  position: absolute;
+  bottom: 0;
+  object-fit: cover;
+}
+
+@keyframes breathing {
+  0% {
+    height: 100%;
+  }
+
+  50% {
+    height: 95%;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+#panelPrincipalPageContent {
+  position: absolute;
+  width: 100%;
+  animation-name: slideUp;
+  animation-duration: 3s;
+  z-index: -1;
+  bottom: 0;
+  object-fit: cover;
+}
+
+#panelText {
+  position: absolute;
+  width: 100%;
+  animation-name: slideUp;
+  animation-duration: 3s;
+  z-index: 1;
+  bottom: 0;
+  object-fit: cover;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(1900px);
+  }
+
+  25% {
+    transform: translateY(1900px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/*---------------------------------------------*/
+
+@media only screen and (max-width: 580px) {
+  /* Page principale */
+
+  #principalPageTitle {
+    font-size: 40px;
+    color: white;
+    animation-name: titlepopup;
+    animation-duration: 3s;
+    position: absolute;
+    top: 40%;
+  }
+
+  @keyframes titlepopup {
+    from {
+      opacity: 0%;
+      transform: scale(0);
+    }
+
+    to {
+      opacity: 100%;
+      transform: scale(1);
+    }
+  }
+
+  #principalPageEnter {
+    margin-top: 50px;
+    background-color: #e5a040;
+    border: 0px solid #421f14;
+    border-radius: 10px;
+    height: 40px;
+    width: 160px;
+    opacity: 100%;
+    font-size: 30px;
+    font-family: "Quicksand", sans-serif;
+    color: #421f14;
+    animation-name: buttonpopup;
+    animation-duration: 3s;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  #barriersPrincipalPage {
+    position: absolute;
+    height: 70%;
+    animation-name: barrierspopup;
+    animation-duration: 3s;
+    z-index: -1;
+    bottom: 0;
+  }
+
+  #lightsPrincipalPage {
+    position: absolute;
+    height: 50%;
+    animation-name: lightspopup;
+    animation-duration: 3s;
+    z-index: -1;
+    top: 0;
+  }
+}
